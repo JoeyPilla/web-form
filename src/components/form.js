@@ -174,7 +174,6 @@ export default class Form extends Component {
                 name='entry.1922675186'
                 id='entry.1922675186'
                 min={now}
-                value={now.toString}
                 required
               />
               <select
