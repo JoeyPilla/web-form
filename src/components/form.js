@@ -47,8 +47,8 @@ export default class Form extends Component {
     console.log(e.target.checkValidity());
   }
 
-//entry.395002384 external cust
-//&entry.395002384=extcust&entry.1922675186=2019-02-27&entry.1720502080=10:23
+  //entry.395002384 external cust
+  //&entry.395002384=extcust&entry.1922675186=2019-02-27&entry.1720502080=10:23
   render() {
     const times = [
       '9:00AM',
@@ -80,13 +80,14 @@ export default class Form extends Component {
     })
 
     var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1; //January is 0!
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
     var yyyy = today.getFullYear();
     const now = yyyy + '-' + mm + '-' + dd;
     console.log(now)
     return (
       <FormWrapper>
+        <Header>DDAO Tour Request</Header>
         <form
           action=' https://docs.google.com/forms/d/e/1FAIpQLScX5YkC5wqWQ778aLBpzWGYQWs62TYNAI-vSoLmjbi5SD3xLA/formResponse?usp=pp_url&'
           target='hidden_iframe'>
@@ -116,20 +117,23 @@ var mm = today.getMonth() + 1; //January is 0!
           </ItemWrapper>
           <ItemWrapper>
             <div>
-            <label>
-              External Customer:
+              <label>
+                External Customer:
         </label>
-            <Input
-              type='checkbox'
-              onChange={this.handleCheckboxChange}
-            />
+              <Input
+                type='checkbox'
+                onChange={this.handleCheckboxChange}
+              />
             </div>
-            <Input
-              type='text'
-              name='entry.395002384'
-              id='entry.395002384'
-              style={this.state.externalCustomer ? {display:'block'} : {display:'none'}}
-            />
+            <div>
+              <Input
+                type='text'
+                name='entry.395002384'
+                id='entry.395002384'
+                style={this.state.externalCustomer ? { display: 'block' } : { display: 'none' }}
+              />
+
+            </div>
           </ItemWrapper>
           <DateWrapper>
             <div>
@@ -154,14 +158,14 @@ var mm = today.getMonth() + 1; //January is 0!
             </div>
           </DateWrapper>
           <ButtonWrapper>
-          <Button
+            <Button
               type='submit'
             >
-            submit
+              submit
           </Button>
           </ButtonWrapper>
         </form>
-        <iframe name="hidden_iframe" id="hidden_iframe" style={{display:'none'}}></iframe>
+        <iframe name="hidden_iframe" id="hidden_iframe" style={{ display: 'none' }}></iframe>
       </FormWrapper>
     )
   }
@@ -169,15 +173,22 @@ var mm = today.getMonth() + 1; //January is 0!
 
 const FormWrapper = styled.div`
   display: flex;
-  padding: 5%;
-  height: 25%;
-  max-width:750px
-  border: 5px rgba(254, 4, 4, .15) solid;
+  padding: 2.5%;
+  height: 40%;
+  width: 400px;
+  border: 2px rgba(0, 0, 0, .15) solid;
   border-radius: 25px
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: space-around;
+  @media(max-width: 450px) {
+    width:90%;
+  }
+  @media(max-width: 375px) {
+    height:50%
+    align-items: space-between;
+  }
 `;
 
 const ItemWrapper = styled.div`
@@ -186,10 +197,9 @@ const ItemWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 5px
+  padding: 15px
   @media( min-width:300px) {
     flex-direction: row;
-    padding-top: 10px
   }
 `;
 const DateWrapper = styled.div`
@@ -200,6 +210,10 @@ const DateWrapper = styled.div`
   padding: 5px
   @media( min-width:300px) {
     flex-direction: row;
+  }
+    :focus {
+      outline:none;
+    border:2px rgba(254, 4, 4, .5) solid;
   }
 `;
 const ButtonWrapper = styled.div`
@@ -215,7 +229,8 @@ const ButtonWrapper = styled.div`
 
 
 const Button = styled.button`
-margin: auto;
+  background-color: rgba(254, 4, 4, .25);
+  margin: auto;
   width: 50%;
   align-self: center;
   padding: 10px;
@@ -234,4 +249,10 @@ export const Input = styled.input`
       outline:none;
     border:2px rgba(254, 4, 4, .5) solid;
   }
+`;
+
+export const Header = styled.h1`
+color: rgba(254, 4, 4);
+  padding: 5px;
+  text-align: center;
 `;
