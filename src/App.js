@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Form from './components/form';
 import styled from 'styled-components';
 class App extends Component {
