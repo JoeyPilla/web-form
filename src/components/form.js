@@ -99,8 +99,33 @@ export default class Form extends Component {
               type='text'
               name='entry.988151643'
               id='entry.988151643'
+              placeholder='Name'
               onChange={this.handleNameChange}
               required
+            />
+          </ItemWrapper>
+          <ItemWrapper>
+            <label>
+              Email:
+            </label>
+            <Input
+              type='text'
+              name='entry.988151643'
+              id='entry.988151643'
+              placeholder='Email'
+              onChange={this.handleNameChange}
+            />
+          </ItemWrapper>
+          <ItemWrapper>
+            <label>
+              Phone Number:
+            </label>
+            <Input
+              type='text'
+              name='entry.988151643'
+              id='entry.988151643'
+              placeholder='Phone Number'
+              onChange={this.handleNameChange}
             />
           </ItemWrapper>
           <ItemWrapper>
@@ -113,6 +138,7 @@ export default class Form extends Component {
               id='entry.1790580931'
               onChange={this.handleNumberChange}
               required
+              placeholder='Number of Visitors'
             />
           </ItemWrapper>
           <ItemWrapper>
@@ -130,6 +156,7 @@ export default class Form extends Component {
                 type='text'
                 name='entry.395002384'
                 id='entry.395002384'
+                placeholder='External Customer'
                 style={this.state.externalCustomer ? { display: 'block' } : { display: 'none' }}
               />
 
@@ -174,7 +201,7 @@ export default class Form extends Component {
 const FormWrapper = styled.div`
   display: flex;
   padding: 2.5%;
-  height: 40%;
+  height: 50%;
   width: 400px;
   border: 2px rgba(0, 0, 0, .15) solid;
   border-radius: 25px
@@ -186,7 +213,7 @@ const FormWrapper = styled.div`
     width:90%;
   }
   @media(max-width: 375px) {
-    height:50%
+    height:75%
     align-items: space-between;
   }
 `;
@@ -197,7 +224,7 @@ const ItemWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 15px
+  padding: .75em
   @media( min-width:300px) {
     flex-direction: row;
   }
